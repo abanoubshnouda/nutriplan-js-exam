@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NutriPlan - Your Wellness Journey</title>
+  <!-- Tailwind CSS -->
+   <!-- ربط ملف التيلوند المحلي الناتج عن الـ CLI -->
+<!-- <link rel="stylesheet" href="./output.css"> -->
+   <script src="https://cdn.tailwindcss.com"></script> 
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'] },
+          colors: { brand: { 50: '#ecfdf5', 600: '#059669', 700: '#047857' } }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .view-transition { animation: fadeIn 0.25s ease-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex antialiased selection:bg-emerald-500 selection:text-white">
+
+  <!-- Mobile Nav Overlay -->
+  <div id="mobile-sidebar-backdrop" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 hidden md:hidden transition-opacity"></div>
+
+  <!-- Left Sidebar (الشريط الجانبي) -->
+  <aside id="sidebar" class="fixed md:sticky top-0 h-screen w-64 bg-white border-r border-slate-200 flex flex-col justify-between z-50 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out shrink-0">
+    <div class="p-6">
+      <!-- الشعار -->
+      <a href="#/home" id="brand-link" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+          <i class="fa-solid fa-seedling text-lg"></i>
+        </div>
+        <div>
+          <span class="text-xl font-extrabold tracking-tight text-slate-900 flex items-center">
+            Nutri<span class="text-emerald-600">Plan</span>
+          </span>
+          <p class="text-xs text-slate-400 font-medium tracking-tight">Your Wellness Journey</p>
+        </div>
+      </a>
+
+      <!-- القوائم الرئيسية الثلاث -->
+      <div class="mt-8">
+        <div class="text-[11px] uppercase tracking-wider font-bold text-slate-400 mb-3 px-3">Main Menu</div>
+        <nav class="space-y-1.5" id="main-nav">
+          <a href="#/home" data-route="home" class="nav-item flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-semibold text-slate-600 hover:text-emerald-700 hover:bg-emerald-50/70 transition-all">
+            <i class="fa-solid fa-utensils w-5 text-center text-slate-400 transition-colors"></i>
+            <span>Meals & Recipes</span>
+          </a>
+          <a href="#/products" data-route="products" class="nav-item flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-semibold text-slate-600 hover:text-emerald-700 hover:bg-emerald-50/70 transition-all">
+            <i class="fa-solid fa-barcode w-5 text-center text-slate-400 transition-colors"></i>
+            <span>Product Scanner</span>
+          </a>
+          <a href="#/foodlog" data-route="foodlog" class="nav-item flex items-center gap-3 px-3.5 py-3 rounded-xl text-sm font-semibold text-slate-600 hover:text-emerald-700 hover:bg-emerald-50/70 transition-all">
+            <i class="fa-solid fa-clipboard-check w-5 text-center text-slate-400 transition-colors"></i>
+            <span>Food Log</span>
+            <span id="sidebar-log-badge" class="ml-auto bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded-full font-bold hidden">0</span>
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- كارت المستخدم Youssef Amir -->
+    <div class="p-4 m-3 bg-slate-50 border border-slate-100 rounded-2xl flex items-center gap-3">
+      <div class="relative">
+        <div class="w-10 h-10 rounded-full bg-emerald-600 text-white font-bold flex items-center justify-center text-sm ring-2 ring-emerald-500/30"><img src="ChatGPT Image Aug 27, 2026, 03_12_47 PM.png"  alt=""></div>
+        <span class="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 border-2 border-white rounded-full"></span>
+      </div>
+      <div class="overflow-hidden">
+        <h4 class="text-sm font-bold text-slate-900 truncate">Abanoub shnouda</h4>
+        <div class="flex items-center gap-1.5 text-xs text-amber-600 font-medium">
+          <i class="fa-solid fa-crown text-[10px]"></i>
+          <span>Premium Member</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- مساحة عرض المحتوى الرئيسي -->
+  <div class="flex-1 flex flex-col min-w-0">
+    <header class="md:hidden bg-white border-b border-slate-200 px-4 py-3 flex items-center justify-between sticky top-0 z-30">
+      <div class="flex items-center gap-2">
+        <span class="font-extrabold text-slate-900 text-lg">Nutri<span class="text-emerald-600">Plan</span></span>
+      </div>
+      <a href="#/foodlog" class="text-xs bg-emerald-600 text-white px-3 py-1.5 rounded-lg font-semibold flex items-center gap-1.5">
+        <i class="fa-solid fa-clipboard-check"></i>
+        <span>Log</span>
+      </a>
+    </header>
+
+    <main id="app-viewport" class="flex-1 p-4 sm:p-6 md:p-8 max-w-7xl w-full mx-auto"></main>
+  </div>
+
+  <!-- حاوية النوافذ المنبثقة لحساب الحصص (Modal) -->
+  <div id="modal-container" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+    <div id="modal-backdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity"></div>
+    <div id="modal-content" class="relative bg-white rounded-3xl max-w-lg w-full shadow-2xl z-10 overflow-hidden transform scale-95 transition-all duration-200"></div>
+  </div>
+
+  <!-- إشعارات التنبيه (Toast) -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- ربط ملف الـ JS الناتج من ملف main.ts -->
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
